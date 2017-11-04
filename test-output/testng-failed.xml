@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [FacebookSuite]">
+  <test name="FacebookTest(failed)">
+    <classes>
+      <class name="learning.jenkins.facebook.UploadAndDownload">
+        <methods>
+          <include name="upload_profile_pic"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- learning.jenkins.facebook.UploadAndDownload -->
+    </classes>
+  </test> <!-- FacebookTest(failed) -->
+</suite> <!-- Failed suite [FacebookSuite] -->
