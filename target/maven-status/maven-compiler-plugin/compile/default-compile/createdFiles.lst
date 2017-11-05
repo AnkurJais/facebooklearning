@@ -1,0 +1,6 @@
+learning/jenkins/facebook/Driver.class
+learning/jenkins/facebook/App.class
+learning/jenkins/pageobjects/HomePageObjects.class
+learning/jenkins/facebook/TestNGLauncher.class
+learning/jenkins/pageobjects/LoginPage.class
+learning/jenkins/facebook/UploadAndDownload.class

@@ -2,8 +2,8 @@ package learning.jenkins.facebook;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.TestNG;
+import org.testng.annotations.Test;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
@@ -14,13 +14,7 @@ public class TestNGLauncher {
 		
 	}
 	
-	private void createXMLSuite(){
-		
-	}
-	
-	public void invokeTestNG(){
-		//Create an instance on TestNG
-		 TestNG myTestNG = new TestNG();
+	private List<XmlSuite> createXMLSuite(){
 		 
 		//Create an instance of XML Suite and assign a name for it.
 		 XmlSuite mySuite = new XmlSuite();
@@ -51,10 +45,17 @@ public class TestNGLauncher {
 		 List<XmlSuite> mySuites = new ArrayList<XmlSuite>();
 		 mySuites.add(mySuite);
 		 
-		//Set the list of Suites to the testNG object you created earlier.
-		 myTestNG.setXmlSuites(mySuites);
+		 return mySuites;
+	}
+	
+	public void invokeTestNG(){
+		//Create an instance on TestNG
+		 TestNG myTestNG = new TestNG();
 		 
-		//invoke run() - this will run your class.
+		//Set the list of Suites to the testNG object you created earlier.
+		 myTestNG.setXmlSuites(this.createXMLSuite());
+		
+		 //invoke run() - this will run your class.
 		 myTestNG.run();
 	}
 }
