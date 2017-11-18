@@ -3,9 +3,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            tools {
-		        maven "mvn3.3.9"
-      		}
       		
             steps {
                 echo "This time, the Maven version should be 3.3.9"
@@ -15,7 +12,7 @@ pipeline {
             }
                       
             post{
-	            mail bcc: '', body: 'hello', cc: '', from: '', replyTo: '', subject: 'Jenkins Email {BUILD_URL}', to: 'ankur.javatm@gmail.com'
+	            mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email {BUILD_URL}", to: "ankur.javatm@gmail.com")
             }
         }
         stage('Test') {
