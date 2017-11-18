@@ -12,7 +12,9 @@ pipeline {
             }
                       
             post{
-	            mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email {BUILD_URL}", to: "ankur.javatm@gmail.com")
+            	success{
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email {BUILD_URL}", to: "ankur.javatm@gmail.com")
+            	}
             }
         }
         stage('Test') {
