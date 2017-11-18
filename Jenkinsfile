@@ -19,10 +19,12 @@ pipeline {
         stage('Build') {
       		
             steps {
-                echo "This time, the Maven version should be 3.3.9"
-		        sh "mvn -version"
-		        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            	wrap([$class: 'Xvfb', screen: '1024x768x24']) {
+	                echo "This time, the Maven version should be 3.3.9"
+			        sh "mvn -version"
+			        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
+	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+	            }    
             }
                       
             post{
