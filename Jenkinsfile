@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
       		
             steps {
-            	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 0.0, installationName: 'default']) {
+            	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 99, installationName: 'default']) {
 	                echo "This time, the Maven version should be 3.3.9"
 			        sh "mvn -version"
 			        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
