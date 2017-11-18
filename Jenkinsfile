@@ -21,12 +21,13 @@ pipeline {
             steps {
                 echo "This time, the Maven version should be 3.3.9"
 		        sh "mvn -version"
+		        mvn exec:java -Dexec.mainClass="learning.jenkins.facebook"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
                       
             post{
             	success{
-            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email {BUILD_URL}", to: "ankur.javatm@gmail.com")
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "ankur.javatm@gmail.com")
             	}
             }
         }
