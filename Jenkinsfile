@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "This time, the Maven version should be 3.3.9"
 		        sh "mvn -version"
-		        mvn exec:java -Dexec.mainClass="learning.jenkins.facebook"
+		        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
                       
