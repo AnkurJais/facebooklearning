@@ -32,14 +32,8 @@ pipeline {
 			        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
 	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 	            }    
-         	}
-         	
-         	post{
-	        	success{
-	        		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
-	        	}
-       		}
          }
+         
          stage('Build on Windows') {
               		
       		agent{
@@ -52,14 +46,14 @@ pipeline {
 			        bat "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
 	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 	            }    
-            post{
-	        	success{
-	        		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
-	        	}    
-        	}
          }
                       
-            
+            post{
+            	success{
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
+            	}
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
