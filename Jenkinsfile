@@ -33,7 +33,7 @@ pipeline {
                       
             post{
             	success{
-            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Greeting}")
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
             	}
             }
         }
