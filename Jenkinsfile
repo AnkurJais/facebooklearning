@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'Email', defaultValue: 'ankur.javatm@gmail.com', description: 'Whom should I send the email?')
+    }
+    
 	tools{
         maven "Maven 3.5.0" 
 		jdk "jdk8"
@@ -29,7 +33,7 @@ pipeline {
                       
             post{
             	success{
-            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "ankur.javatm@gmail.com")
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Greeting}")
             	}
             }
         }
