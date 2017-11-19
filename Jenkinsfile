@@ -20,8 +20,11 @@ pipeline {
 			}
     	}
     
-        stage('Build') {
+        stage('Build on linux') {
       		
+      		agent{
+      			label 'linux'
+      		}
             steps {
             	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 99, installationName: 'default']) {
 	                echo "This time, the Maven version should be 3.3.9"
@@ -29,11 +32,25 @@ pipeline {
 			        sh "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
 	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 	            }    
-            }
+         }
+         
+         stage('Build on Windows') {
+              		
+      		agent{
+      			label 'windows'
+      		}
+            steps {
+            	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 99, installationName: 'default']) {
+	                echo "This time, the Maven version should be 3.3.9"
+			        bat "mvn -version"
+			        bat "mvn exec:java -Dexec.mainClass=learning.jenkins.facebook"
+	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+	            }    
+         }
                       
             post{
             	success{
-            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Greeting}")
+            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
             	}
             }
         }
