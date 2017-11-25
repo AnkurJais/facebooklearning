@@ -5,6 +5,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,11 +17,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import learning.jenkins.pageobjects.*;
 
@@ -28,20 +34,31 @@ public class UploadAndDownload {
 	WebDriver driver;
 	
 	@BeforeClass
-	public void setup(){
-		System.setProperty("webdriver.chrome.driver", "/home/ankur/software/chromedriver");
-		Map<String, Object> prefs = new HashMap<String, Object>();
+	@Parameters("browser")
+	public void setup(@Optional String browser) throws MalformedURLException{
+		if(browser!=null){
+			System.setProperty("webdriver.gecko.driver", "/home/ankur/software/geckodriver");
+			DesiredCapabilities dc = DesiredCapabilities.firefox();
+//			dc.setBrowserName("chrome");
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),dc);
+			driver.manage().window().maximize();
+		}
+		else{
+			System.setProperty("webdriver.chrome.driver", "/Users/username/Downloads/chromedriver");
+			Map<String, Object> prefs = new HashMap<String, Object>();
 
-		//Put this into prefs map to switch off browser notification
-		prefs.put("profile.default_content_setting_values.notifications", 2);
-		prefs.put("credentials_enable_service", false);
-		
-		//Create chrome options to set this prefs
-		ChromeOptions options = new ChromeOptions();
-		options.setExperimentalOption("prefs", prefs);
-		
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
+			//Put this into prefs map to switch off browser notification
+			prefs.put("profile.default_content_setting_values.notifications", 2);
+			prefs.put("credentials_enable_service", false);
+			
+			//Create chrome options to set this prefs
+			ChromeOptions options = new ChromeOptions();
+			options.setExperimentalOption("prefs", prefs);			
+			driver = new ChromeDriver(options);
+			DesiredCapabilities dc = DesiredCapabilities.chrome();
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),dc);
+			driver.manage().window().maximize();
+		}
 	}
 
 	@Test(priority=1)

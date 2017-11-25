@@ -1,6 +1,7 @@
 package learning.jenkins.facebook;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.testng.TestNG;
 import org.testng.annotations.Test;
@@ -23,7 +24,9 @@ public class TestNGLauncher {
 		//Create an instance of XmlTest and assign a name for it.
 		 XmlTest myTest = new XmlTest(mySuite);
 		 myTest.setName("FacebookTest");
-		 
+		 HashMap<String, String> params = new HashMap<String, String>();
+		 params.put("browser", "firefox");
+		 myTest.setParameters(params);
 		//Add any parameters that you want to set to the Test.
 //		 myTest.setParameters();
 		 
