@@ -38,6 +38,7 @@ public class UploadAndDownload {
 	public void setup(@Optional String browser) throws MalformedURLException{
 		System.out.println("Browser==========" + browser);
 		if(browser!=null){
+			System.out.println("Browser========== FF" + browser);
 			System.setProperty("webdriver.gecko.driver", "/home/ankur/software/geckodriver");
 			DesiredCapabilities dc = DesiredCapabilities.firefox();
 //			dc.setBrowserName("chrome");
@@ -45,6 +46,7 @@ public class UploadAndDownload {
 			driver.manage().window().maximize();
 		}
 		else{
+			System.out.println("Browser========== Chrome" + browser);
 			System.setProperty("webdriver.chrome.driver", "/Users/username/Downloads/chromedriver");
 			Map<String, Object> prefs = new HashMap<String, Object>();
 
