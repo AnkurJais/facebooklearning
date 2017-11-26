@@ -30,7 +30,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<mainClass>learning.jenkins.facebook.App</mainClass>
+						<mainClass>learning.jenkins.facebook.Driver</mainClass>
 						<classpathScope>test</classpathScope>
 						<arguments>
 							<argument>foo</argument>
