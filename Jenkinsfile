@@ -23,6 +23,7 @@ pipeline {
         stage('Build') {
       		
             steps {
+            echo "In Build Step"
             	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 99, installationName: 'default']) {
 	                echo "This time, the Maven version should be 3.3.9"
 			        sh "mvn -version"
