@@ -24,16 +24,13 @@ pipeline {
       		
             steps {
             echo "In Build Step"
-            	wrap([$class: 'Xvfb', screen: '1024x768x24', displayNameOffset: 99, installationName: 'default']) {
-	                echo "This time, the Maven version should be 3.3.9"
-			        
+	                echo "This time, the Maven version should be 3.3.9"    
 			        sh	"mvn -version"
 			        sh	"mvn clean"
 			        sh	"mvn install"
 			        sh	"mvn exec:java -Dexec.mainClass=learning.jenkins.facebook.Driver"
 			        
 	                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-	            }    
             }
                       
             post{
