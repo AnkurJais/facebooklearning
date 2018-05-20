@@ -11,7 +11,9 @@ pipeline {
 	}
 	
     stages {
-
+        def sel_hub
+        def sel_chrome
+        def sel_firefox
         stage('Preparation') {
             sel_hub = docker.image('selenium/hub:3.4.0').run('-p 4444:4444 --name selenium-hub')
             sel_chrome = docker.image('selenium/node-chrome-debug:3.4.0').run('-p 5901:5900 --link selenium-hub:hub')
