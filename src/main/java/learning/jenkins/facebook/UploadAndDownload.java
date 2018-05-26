@@ -39,7 +39,7 @@ public class UploadAndDownload {
 		System.out.println("Browser==========" + browser);
 		if(browser!=null){
 			System.out.println("Browser========== FF" + browser);
-			System.setProperty("webdriver.gecko.driver", "/home/ankur/software/geckodriver");
+			System.setProperty("webdriver.gecko.driver", "/var/jenkins_home/softwares/geckodriver");
 			DesiredCapabilities dc = DesiredCapabilities.firefox();
 //			dc.setBrowserName("chrome");
 			driver = new RemoteWebDriver(new URL("http://172.18.0.1:4442/wd/hub"),dc);
@@ -47,7 +47,7 @@ public class UploadAndDownload {
 		}
 		else{
 			System.out.println("Browser========== Chrome" + browser);
-			System.setProperty("webdriver.chrome.driver", "/Users/username/Downloads/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/var/jenkins_home/softwares/chromedriver");
 			Map<String, Object> prefs = new HashMap<String, Object>();
 
 			//Put this into prefs map to switch off browser notification
