@@ -59,7 +59,7 @@ public class UploadAndDownload {
 			options.setExperimentalOption("prefs", prefs);			
 			driver = new ChromeDriver(options);
 			DesiredCapabilities dc = DesiredCapabilities.chrome();
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),dc);
+			driver = new RemoteWebDriver(new URL("http://172.18.0.1:4442/wd/hub"),dc);
 			driver.manage().window().maximize();
 		}
 	}
