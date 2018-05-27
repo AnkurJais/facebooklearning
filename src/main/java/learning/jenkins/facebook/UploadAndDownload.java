@@ -43,7 +43,7 @@ public class UploadAndDownload {
 			System.setProperty("webdriver.gecko.driver", "/var/jenkins_home/softwares/geckodriver");
 			DesiredCapabilities dc = DesiredCapabilities.firefox();
 //			dc.setBrowserName("chrome");
-			driver = new RemoteWebDriver(new URL("http://172.17.0.1:4442/wd/hub"),dc);
+			driver = new RemoteWebDriver(new URL("http://172.17.0.4:5555/wd/hub"),dc);
 			driver.manage().window().maximize();
 		}
 		else{
@@ -72,7 +72,7 @@ public class UploadAndDownload {
 			options.setExperimentalOption("prefs", prefs);			
 			driver = new ChromeDriver(options);
 			DesiredCapabilities dc = DesiredCapabilities.chrome();
-			driver = new RemoteWebDriver(new URL("http://172.18.0.1:4442/wd/hub"),dc);
+			driver = new RemoteWebDriver(new URL("http://172.17.0.4:5555/wd/hub"),dc);
 			driver.manage().window().maximize();
 		}
 	}
