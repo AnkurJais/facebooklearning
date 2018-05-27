@@ -37,7 +37,7 @@ public class UploadAndDownload {
 	@Parameters("browser")
 	public void setup(@Optional String browser) throws MalformedURLException{
 		System.out.println("Browser==========" + browser);
-		if(browser!=null){
+		if(browser == null || browser.equals("firefox")){
 			System.out.println("Browser========== FF" + browser);
 			System.setProperty("webdriver.gecko.driver", "/var/jenkins_home/softwares/geckodriver");
 			DesiredCapabilities dc = DesiredCapabilities.firefox();
