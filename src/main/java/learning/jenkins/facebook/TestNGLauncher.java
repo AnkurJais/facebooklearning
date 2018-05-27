@@ -25,7 +25,7 @@ public class TestNGLauncher {
 		 XmlTest myTest = new XmlTest(mySuite);
 		 myTest.setName("FacebookTest");
 		 HashMap<String, String> params = new HashMap<String, String>();
-		 params.put("browser", "chrome");
+		 params.put("browser", "firefox");
 		 myTest.setParameters(params);
 		//Add any parameters that you want to set to the Test.
 //		 myTest.setParameters();
