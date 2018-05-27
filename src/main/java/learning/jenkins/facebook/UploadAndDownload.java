@@ -27,6 +27,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import java.io.File;
 import learning.jenkins.pageobjects.*;
 
 public class UploadAndDownload {
@@ -47,6 +48,18 @@ public class UploadAndDownload {
 		}
 		else{
 			System.out.println("Browser========== Chrome" + browser);
+			File file = new File("/var/jenkins_home/softwares/chromedriver");
+			boolean result;
+			// check if file exists
+			result=file.exists();
+			if(result){
+				// print message that file exists
+				System.out.println(file.getAbsolutePath() + " exists");
+			}
+			else{
+				//print message that the file does not exist
+				System.out.println(file.getAbsolutePath()+" does not exists");
+			}
 			System.setProperty("webdriver.chrome.driver", "/var/jenkins_home/softwares/chromedriver");
 			Map<String, Object> prefs = new HashMap<String, Object>();
 
