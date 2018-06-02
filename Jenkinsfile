@@ -35,7 +35,7 @@ pipeline {
                       
             post{
             	success{
-            		mail(from: "jenkins@ankur.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
+            		mail(from: "ankurjaiswal1812@gmail.com",body: "hello", subject: "Jenkins Email ${BUILD_URL}", to: "${params.Email}")
             	}
             }
         }
