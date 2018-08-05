@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Nov 05 16:14:03 IST 2017</td>
+<td>Started on:</td><td>Sun Jul 22 23:57:41 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>23 seconds (23215 ms)</td>
+<tr><td>Total time:</td><td>9 seconds (9099 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,54 +75,50 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='learning.jenkins.facebook.UploadAndDownload.upload_profile_pic()'><b>upload_profile_pic</b><br>Test class: learning.jenkins.facebook.UploadAndDownload</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a/span[contains(text(),&apos;Leonardo&apos;)]&quot;}
-  (Session info: chrome=59.0.3071.115)
-  (Driver info: chromedriver=2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5),platform=Linux 4.4.0-83-generic x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 72 milliseconds
+<td title='learning.automation.facebook.functional.UploadAndDownload.upload_profile_pic()'><b>upload_profile_pic</b><br>Test class: learning.automation.facebook.functional.UploadAndDownload<br>Test method: Upload Profile Pic</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //a/span[contains(text(),&apos;Leonardo&apos;)]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;ankur&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.4.0-83-generic&apos;, java.version: &apos;1.8.0_151&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5), userDataDir=/tmp/.org.chromium.Chromium.KUKaT5}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.115, platform=LINUX, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: d39fe44e3750b5198e60e054e60338de
+System info: host: &apos;ankur&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.13.0-43-generic&apos;, java.version: &apos;1.8.0_161&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{moz:profile=/tmp/rust_mozprofile.QzxJMEiJEC8m, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, moz:headless=false, platform=ANY, moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, webdriver.remote.sessionid=bcf01e72-d3ce-4343-a5b8-203db2fb0203, acceptInsecureCerts=true, browserVersion=60.0, platformVersion=4.13.0-43-generic, moz:processID=4624.0, browserName=firefox, javascriptEnabled=true, platformName=linux, moz:webdriverClick=true}]
+Session ID: bcf01e72-d3ce-4343-a5b8-203db2fb0203
 *** Element info: {Using=xpath, value=//a/span[contains(text(),&apos;Leonardo&apos;)]}
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:509)
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
-	at learning.jenkins.facebook.UploadAndDownload.upload_profile_pic(UploadAndDownload.java:62)
-	at learning.jenkins.facebook.TestNGLauncher.invokeTestNG(TestNGLauncher.java:63)
-	at learning.jenkins.facebook.App.main(App.java:15)
-	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:297)
-	at java.lang.Thread.run(Thread.java:748)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1342359429", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1342359429'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a/span[contains(text(),&apos;Leonardo&apos;)]&quot;}
-  (Session info: chrome=59.0.3071.115)
-  (Driver info: chromedriver=2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5),platform=Linux 4.4.0-83-generic x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 72 milliseconds
+	at learning.automation.facebook.functional.UploadAndDownload.upload_profile_pic(UploadAndDownload.java:49)
+	at learning.automation.facebook.functional.TestNGLauncher.invokeTestNG(TestNGLauncher.java:55)
+	at learning.automation.facebook.driver.Driver.main(Driver.java:9)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1533524862", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1533524862'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //a/span[contains(text(),&apos;Leonardo&apos;)]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;ankur&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.4.0-83-generic&apos;, java.version: &apos;1.8.0_151&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461571 (8a88bbe0775e2a23afda0ceaf2ef7ee74e822cc5), userDataDir=/tmp/.org.chromium.Chromium.KUKaT5}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.115, platform=LINUX, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: d39fe44e3750b5198e60e054e60338de
+System info: host: &apos;ankur&apos;, ip: &apos;127.0.0.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.13.0-43-generic&apos;, java.version: &apos;1.8.0_161&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{moz:profile=/tmp/rust_mozprofile.QzxJMEiJEC8m, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, moz:headless=false, platform=ANY, moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, webdriver.remote.sessionid=bcf01e72-d3ce-4343-a5b8-203db2fb0203, acceptInsecureCerts=true, browserVersion=60.0, platformVersion=4.13.0-43-generic, moz:processID=4624.0, browserName=firefox, javascriptEnabled=true, platformName=linux, moz:webdriverClick=true}]
+Session ID: bcf01e72-d3ce-4343-a5b8-203db2fb0203
 *** Element info: {Using=xpath, value=//a/span[contains(text(),&apos;Leonardo&apos;)]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:509)
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
-	at learning.jenkins.facebook.UploadAndDownload.upload_profile_pic(UploadAndDownload.java:62)
+	at learning.automation.facebook.functional.UploadAndDownload.upload_profile_pic(UploadAndDownload.java:49)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,17 +140,11 @@ Session ID: d39fe44e3750b5198e60e054e60338de
 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
 	at org.testng.TestNG.run(TestNG.java:1048)
-	at learning.jenkins.facebook.TestNGLauncher.invokeTestNG(TestNGLauncher.java:63)
-	at learning.jenkins.facebook.App.main(App.java:15)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:297)
-	at java.lang.Thread.run(Thread.java:748)
+	at learning.automation.facebook.functional.TestNGLauncher.invokeTestNG(TestNGLauncher.java:55)
+	at learning.automation.facebook.driver.Driver.main(Driver.java:9)
 </pre></div></td>
 <td>0</td>
-<td>learning.jenkins.facebook.UploadAndDownload@416dc77a</td></tr>
+<td>learning.automation.facebook.functional.UploadAndDownload@5c0369c4</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -164,10 +154,10 @@ Session ID: d39fe44e3750b5198e60e054e60338de
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='learning.jenkins.facebook.UploadAndDownload.login()'><b>login</b><br>Test class: learning.jenkins.facebook.UploadAndDownload</td>
+<td title='learning.automation.facebook.functional.UploadAndDownload.login()'><b>login</b><br>Test class: learning.automation.facebook.functional.UploadAndDownload<br>Test method: Login</td>
 <td></td>
-<td>15</td>
-<td>learning.jenkins.facebook.UploadAndDownload@416dc77a</td></tr>
+<td>8</td>
+<td>learning.automation.facebook.functional.UploadAndDownload@5c0369c4</td></tr>
 </table><p>
 </body>
 </html>

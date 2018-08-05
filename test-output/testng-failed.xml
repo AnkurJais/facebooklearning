@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [FacebookSuite]">
+  <parameter name="browser" value="firefox"/>
   <test name="FacebookTest(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="learning.jenkins.facebook.UploadAndDownload">
+      <class name="learning.automation.facebook.functional.UploadAndDownload">
         <methods>
+          <include name="beforeMethod"/>
+          <include name="beforeSuite"/>
           <include name="upload_profile_pic"/>
-          <include name="setup"/>
+          <include name="afterSuite"/>
         </methods>
-      </class> <!-- learning.jenkins.facebook.UploadAndDownload -->
+      </class> <!-- learning.automation.facebook.functional.UploadAndDownload -->
     </classes>
   </test> <!-- FacebookTest(failed) -->
 </suite> <!-- Failed suite [FacebookSuite] -->

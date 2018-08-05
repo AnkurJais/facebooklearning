@@ -1,0 +1,109 @@
+package learning.automation.facebook.functional;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import learning.automation.facebook.assertion.AssertionContext;
+import learning.automation.facebook.core.BaseClass;
+import learning.automation.facebook.core.BrowserReportInitializer;
+import learning.automation.facebook.pageobjects.*;
+
+public class UploadAndDownload extends BaseClass {
+
+  @Test(priority=1, description = "Login")
+  public void login() throws InterruptedException{
+    driver.get("https://facebook.com");
+    LoginPage login = PageFactory.initElements(driver, LoginPage.class);
+    login.email.sendKeys("******@gmail.com");
+    login.pass.sendKeys("******");
+    login.pass.submit();
+    AssertionContext.assertTrue(1==1);
+    Thread.sleep(3000);
+  }
+
+  @Test(priority=2, description = "Upload Profile Pic")
+  public void upload_profile_pic() throws InterruptedException, AWTException{		
+    Set<String> windows = driver.getWindowHandles();
+    System.out.println(windows.size());
+    WebDriverWait wait = new WebDriverWait(driver, 30);
+    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a/span[contains(text(),'Leonardo')]"))));
+    WebElement profile = driver.findElement(By.xpath("//a/span[contains(text(),'Leonardo')]"));
+    Actions action = new Actions(driver);
+    action.moveToElement(profile).perform();
+    WebElement profile_anchor = driver.findElement(By.xpath("//div/a/span[contains(text(),Leonardo)]/parent::a"));
+    String title = profile_anchor.getAttribute("title");
+    System.out.println("Tooltip: "+title);
+    Assert.assertEquals(title, "Profile");
+    profile.click();
+
+    Thread.sleep(2000);
+    Boolean dialog_present = is_dialog_present();
+    if(dialog_present){
+      driver.findElement(By.xpath("//a[@data-testid='skip_button']")).click();
+    }
+
+    Thread.sleep(2000);
+    if(dialog_present){
+      driver.findElement(By.xpath("//a[@data-testid='skip_button']")).click();
+    }
+
+    WebElement profile_upload_element = driver.findElement(By.xpath("//div[@class='photoContainer']/div/div/div/a"));
+    profile_upload_element.click();
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[contains(text(),'Update Profile Picture')]")));
+    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[contains(text(),'Update Profile Picture')]")));
+
+    driver.findElement(By.xpath("//input[@title='Choose a file to upload']/parent::div")).click();
+    Thread.sleep(5000);
+    Robot r = new Robot();
+    StringSelection stringSelection = new StringSelection("/home/ankur/Pictures/baahubali-2-new-poster.jpg");
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+    r.keyPress(KeyEvent.VK_DOWN);
+    r.keyRelease(KeyEvent.VK_DOWN);
+    r.setAutoDelay(300);
+    r.keyPress(KeyEvent.VK_CONTROL);
+    r.keyPress(KeyEvent.VK_V);
+    r.keyRelease(KeyEvent.VK_V);
+    r.keyRelease(KeyEvent.VK_CONTROL);
+    r.keyPress(KeyEvent.VK_ENTER);
+    r.keyRelease(KeyEvent.VK_ENTER);
+
+    Thread.sleep(10000);
+    System.out.println(driver.findElement(By.xpath("//div/em[@data-intl-translation='Create profile picture']")).getText());
+    action.moveByOffset(50, 0).perform();
+    WebElement zoom = driver.findElement(By.xpath("//input[@type='hidden']/parent::div[@role='presentation']"));
+    action.clickAndHold(zoom).moveByOffset(100,0).release().build().perform();
+
+    WebElement save_button = driver.findElement(By.xpath("//button[@data-testid='profilePicSaveButton']"));
+    save_button.click();  
+  }
+
+  Boolean is_dialog_present(){
+    // Element that displayed to change profile pic or cover pic with option ok and skip
+    List <WebElement> element = (List<WebElement>)driver.findElements(By.xpath("//div[contains(@class,'uiContextualLayerBelowLeft')]"));
+    System.out.println(element.size());
+    if(element.size()>0)
+      return true;
+    else
+      return false;
+  }
+}
