@@ -1,2 +1,2 @@
 grid:
-  url: http://localhost:5555/wd/hub
+  url: http://mylocal:5555/wd/hub
